@@ -112,10 +112,11 @@ console.log(lat);
           zoom={15}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
+            zoomControl: true,
+            streetViewControl:true,
+            mapTypeControl: true,
+            fullscreenControl: true,
+            sateliteView:true,
           }}
           onLoad={map => setMap(map)}
         >

@@ -37,18 +37,25 @@ function App() {
   const [duration, setDuration] = useState('')
   const [long,setLong]=useState(null);
   const [lat,setLat]=useState(null);
-  const getLocation=()=>{
-    navigator.geolocation.getCurrentPosition((position)=>{
+  const getLocation= async ()=>{
+     const location= await  navigator.geolocation
+     if(!location){
+          alert('your brouser does not support geolocation')
+     }
+     location.getCurrentPosition((position)=>{
       const{coords}=position;
-      longitude=(coords.latitude);
+     setLat(coords.latitude)
       setLong(coords.longitude);
     },(err)=>{
       console.log(err);
     })
   }
-  getLocation();
-  const center = { lat:setLat, lng:long}
-alert(center)
+  window.onload= async (event)=>{
+     await getLocation();
+  }
+ 
+  const center = { lat:lat, lng:long}
+
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
   /** @type React.MutableRefObject<HTMLInputElement> */
@@ -85,6 +92,7 @@ alert(center)
 
 
   return (
+    
     <Flex
       position='relative'
       flexDirection='column'
@@ -93,8 +101,8 @@ alert(center)
       w='100vw'
     >
       <Box position='absolute' left={0} top={0} h='100%' w='100%'>
-        {/* Google Map Box */}
-        <GoogleMap
+      {/* Google Map Box */}
+       <GoogleMap
           center={center}
           zoom={15}
           mapContainerStyle={{ width: '100%', height: '100%' }}
@@ -161,7 +169,10 @@ alert(center)
             }}
           />
         </HStack>
-      </Box>
+       </Box>
+      
+        <p>{center}</p>
+      
     </Flex>
   )
 }

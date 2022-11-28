@@ -38,17 +38,22 @@ function App() {
   const [long,setLong]=useState(null);
   const [lat,setLat]=useState(null);
   const getLocation= async ()=>{
-     const location= await  navigator.geolocation
-     if(!location){
-          alert('your brouser does not support geolocation')
-     }
-     location.getCurrentPosition((position)=>{
-      const{coords}=position;
-     setLat(coords.latitude)
-      setLong(coords.longitude);
-    },(err)=>{
-      console.log(err);
-    })
+    try{
+      const location= await  navigator.geolocation
+      if(!location){
+           alert('your brouser does not support geolocation')
+      }
+      location.getCurrentPosition((position)=>{
+       const{coords}=position;
+        setLat(coords.latitude)
+        setLong(coords.longitude);
+     },(err)=>{
+       console.log(err);
+     })
+    }catch(err){
+      console.error(err);
+    }
+    
   }
   window.onload= async (event)=>{
      await getLocation();

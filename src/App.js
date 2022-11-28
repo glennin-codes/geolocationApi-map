@@ -27,7 +27,7 @@ import { useRef, useState } from 'react'
 function App() {
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyAX0P-gxcWgeW0pkJtBei0kjd5KnDwGsVY',
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ['places'],
   })
 

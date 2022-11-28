@@ -57,10 +57,10 @@ function App() {
   }
   window.onload= async (event)=>{
      await getLocation();
+     
   }
- 
   const center = { lat:lat, lng:long}
-
+console.log(lat);
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
   /** @type React.MutableRefObject<HTMLInputElement> */
@@ -176,8 +176,7 @@ function App() {
         </HStack>
        </Box>
       
-        <p>{center}</p>
-      
+       
     </Flex>
   )
 }

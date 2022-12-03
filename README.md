@@ -33,7 +33,7 @@ npm start
 
 ## Author
 
-- [**glen**](https://trulymittal.com)
+- [**glen**]
 
 ## Contribute
 

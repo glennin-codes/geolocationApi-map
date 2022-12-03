@@ -10,9 +10,6 @@
 6. Directions Service
 7. Directions Renderer on map
 
-## Youtube tutorial
-
-[https://youtu.be/iP3DnhCUIsE](https://youtu.be/iP3DnhCUIsE)
 
 ## Starting the app
 
@@ -36,7 +33,7 @@ npm start
 
 ## Author
 
-- [**Truly Mittal**](https://trulymittal.com)
+- [**glen**](https://trulymittal.com)
 
 ## Contribute
 
